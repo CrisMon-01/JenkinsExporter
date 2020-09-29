@@ -3,9 +3,12 @@ import xml.etree.ElementTree as ET
 import sys
 import os
 
+from lib import extractor
+
 username = ''
 token = ''
 server = ''
+action = ''
 
 for arg in sys.argv:
     if '-n=' in arg:
@@ -18,26 +21,14 @@ for arg in sys.argv:
         server = arg[3:]
         print("[INFO] TOKEN:"+server)
 
-print("[INFO] AUTH:"+username+':'+token)
+print("[INFO] AUTH:"+username+token+' @ SERVER: '+server)
 
-try:
-    os.makedirs('jobsconfig')
-except: 
-    print("[INFO] CARTELLA PRESENTE")
-
-response_xml = requests.get('http://'+username+':'+token+'@'+server+'/view/All/api/xml?')
-xmlAlljobs = ET.fromstring(str(response_xml.text))
-listjobs = []
-for child in xmlAlljobs:
-    if child.tag != 'name' :
-        if child.tag != 'url':
-            try:
-                listjobs.append(child[0].text)
-            except: 
-                print("[INFO] ECCEZIONE")
-print("[INFO] JOB LIST: "+str(listjobs))
-for job in listjobs:
-    configjob = requests.get('http://'+username+':'+token+'@'+server+'/job/'+str(job)+'/config.xml')
-    print(str(configjob.text))
-    fileconfig = open('./jobsconfig/'+job+'.xml', 'w+')
-    fileconfig.write(configjob.text)
+if sys.argv[(len(sys.argv)-1)] == 'download':
+    print("[INFO] YOU WILL DOWNLOAD JOB'S CONFIG FILE")
+    extractor.extraction(username,token,server)
+else: 
+    if  sys.argv[(len(sys.argv)-1)] == 'upload':
+        print("[INFO] YOU WILL UPLOAD JOB'S CONFIG FILE")
+    else:
+        print("[INFO] YOU WILL DOWNLOAD JOB'S CONFIG FILE")
+        extractor.extraction(username,token,server)
