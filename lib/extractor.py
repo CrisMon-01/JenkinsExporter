@@ -1,6 +1,5 @@
 import requests
 import xml.etree.ElementTree as ET
-import sys
 import os
 
 def extraction (username, token, server):
