@@ -8,6 +8,7 @@ I use this to move jenkins job between user and server. <br>
     * xml.etree.ElementTree as ET
     * sys
     * os
+    * getpass
 * Jenkins credential
     * user
     * token [In Jenkins you can create one on: User (up, right in the main page) -> Configure -> Token API]
