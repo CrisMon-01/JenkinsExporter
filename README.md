@@ -11,7 +11,8 @@ I use this to move jenkins job between user and server. <br>
     * getpass
 * Jenkins credential
     * user
-    * token [In Jenkins you can create one on: User (up, right in the main page) -> Configure -> Token API]
+    * token/password [In Jenkins you can create one on: User (up, right in the main page) -> Configure -> Token API]
+        * please use the token for the upload, the password have some problem with the CSFR security
     * server
 
 ## Run: 
@@ -21,5 +22,4 @@ The last parameter is the action you want to do: upload config job or upload tha
 * Upload on the new user/server 
 
 # TO-DO:
-* manage user input for credential (argv <= 3)
 * update to manage job in sub folder (now it take all the job in the "home" of Jenkins)
