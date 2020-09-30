@@ -1,6 +1,6 @@
 # SIMPLE JENKINS TOOL TO MANAGE MIGRATION BETWEEN SERVER AND USER
 
-I use this to move jenkins job between user and server. <br>
+I use this to move jenkins job between users and servers. <br>
 
 ## Require
 * python3 
@@ -17,6 +17,8 @@ I use this to move jenkins job between user and server. <br>
 
 ## Run: 
 `python3 main.py -n=$user -t=$api -s=$server $action`
+or <br>
+`python3 main.py`
 The last parameter is the action you want to do: upload config job or upload that (for the other parameter there is no real order). <br>
 * Download job from your old server/user
 * Upload on the new user/server 
