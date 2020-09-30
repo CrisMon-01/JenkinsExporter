@@ -22,4 +22,5 @@ The last parameter is the action you want to do: upload config job or upload tha
 * Upload on the new user/server 
 
 # TO-DO:
+* use config file for the credential
 * update to manage job in sub folder (now it take all the job in the "home" of Jenkins)
