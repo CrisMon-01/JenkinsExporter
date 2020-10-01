@@ -19,10 +19,9 @@ I use this to move jenkins job between users and servers. <br>
 `python3 main.py -n=$user -t=$api -s=$server $action`
 or <br>
 `python3 main.py`
-The last parameter is the action you want to do: download config job or upload that (for the other parameter there is no real order), update a plugin etc (you had to manage the dependency). <br>
+The last parameter is the action you want to do: download config job or upload that (for the other parameter there is no real order. <br>
 * download: job from your old server/user
 * upload: on the new user/server
-* plugin: instal plugin
 
 # TO-DO:
 * use config file for the credential
