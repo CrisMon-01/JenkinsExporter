@@ -12,16 +12,17 @@ I use this to move jenkins job between users and servers. <br>
 * Jenkins credential
     * user
     * token/password [In Jenkins you can create one on: User (up, right in the main page) -> Configure -> Token API]
-        * please use the token for the upload, the password have some problem with the CSFR security
+        * please use the token for the upload, the password has some problem with the CSFR security
     * server
 
 ## Run: 
 `python3 main.py -n=$user -t=$api -s=$server $action`
 or <br>
 `python3 main.py`
-The last parameter is the action you want to do: upload config job or upload that (for the other parameter there is no real order). <br>
-* Download job from your old server/user
-* Upload on the new user/server 
+The last parameter is the action you want to do: download config job or upload that (for the other parameter there is no real order), update a plugin etc (you had to manage the dependency). <br>
+* download: job from your old server/user
+* upload: on the new user/server
+* plugin: instal plugin
 
 # TO-DO:
 * use config file for the credential
