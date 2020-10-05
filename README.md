@@ -9,6 +9,9 @@ I use this to move jenkins job between users and servers. <br>
     * sys
     * os
     * getpass
+    * jenkins
+    * python-jenkins
+    * json
 * Jenkins credential
     * user
     * token/password [In Jenkins you can create one on: User (up, right in the main page) -> Configure -> Token API]
@@ -22,6 +25,7 @@ or <br>
 The last parameter is the action you want to do: download config job or upload that (for the other parameter there is no real order. <br>
 * download: job from your old server/user
 * upload: on the new user/server
+* list-plugin: list the plugin from th eserver in json format (./config/plugins.json)
 
 # TO-DO:
 * use config file for the credential

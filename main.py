@@ -2,6 +2,7 @@ import sys
 import getpass
 from lib import extractor
 from lib import uploader
+from lib import plugins
 
 username = ''
 token = ''
@@ -36,5 +37,9 @@ else:
         print("[INFO] YOU WILL UPLOAD JOB'S CONFIG FILE")
         uploader.upload(username,token,server)
     else:
-        print("[WARN] YOU HAVEN'T SPECIFY ACTION")
-        sys.exit()
+        if action == 'list-plugin':
+            print("[INFO] I WILL LIST THE PLUGIN OF THE JENKINS @ "+server+" IN config/plugin.json")
+            plugins.makelist(username,token,server)
+        else:
+            print("[WARN] YOU HAVEN'T SPECIFY ACTION")
+            sys.exit()
