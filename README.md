@@ -1,4 +1,4 @@
-# SIMPLE JENKINS TOOL TO MANAGE MIGRATION BETWEEN SERVER AND USER
+# Simple Jenkins tool to manage migration between servers and users
 
 I use this to move jenkins job between users and servers. <br>
 
