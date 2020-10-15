@@ -1,5 +1,6 @@
 import sys
 import getpass
+import yaml
 from lib import extractor
 from lib import uploader
 from lib import plugins
@@ -9,11 +10,18 @@ token = ''
 server = ''
 action = ''
 
-if len(sys.argv)<=3:
-    username = input("[INFO] ENTER JENKINS USERNAME: ")
-    token = getpass.getpass("[INFO] ENTER TOKEN/PASSWORD: ")
-    server = input("[INFO] ENTER SERVER URL + PORT (NO HTTP://): ")
-    action = input("[INFO] ENTER METHOD: ")
+if len(sys.argv)<=2:
+    if '--auth-file' in sys.argv:
+        configinfo = yaml.load(open('./config/credential.yaml'))
+        username = configinfo['jenkins_username']
+        token = configinfo['jenkins_token']
+        server = configinfo['jenkins_server']+':'+str(configinfo['jenkins_port'])
+        action = configinfo['action']
+    else:
+        username = input("[INFO] ENTER JENKINS USERNAME: ")
+        token = getpass.getpass("[INFO] ENTER TOKEN/PASSWORD: ")
+        server = input("[INFO] ENTER SERVER URL + PORT (NO HTTP://): ")
+        action = input("[INFO] ENTER METHOD: ")
 else:
     for arg in sys.argv:
         if '-n=' in arg:
@@ -24,7 +32,7 @@ else:
             print("[INFO] TOKEN:"+token)
         if '-s=' in arg:
             server = arg[3:]
-            print("[INFO] TOKEN:"+server)
+            print("[INFO] SERVER:"+server)
         action = sys.argv[(len(sys.argv)-1)]
 
 print("[INFO] AUTH:"+username+" "+token+' @ SERVER: '+server)
