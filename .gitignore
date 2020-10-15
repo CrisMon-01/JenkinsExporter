@@ -136,5 +136,6 @@ dmypy.json
 # Cython debug symbols
 cython_debug/
 
+config/credential.yaml
 jobsconfig/*
 plugins/[a-A]*
