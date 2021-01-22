@@ -139,5 +139,5 @@ cython_debug/
 config/credential.yaml
 config/plugins.json
 jobsconfig/*
-logs/*
+logs/result.log
 plugins/[a-A]*
